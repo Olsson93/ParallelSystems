@@ -14,7 +14,7 @@ def newScale = Channel.createOne2One()
 def pause = Channel.createOne2One()
 
 def network = [ new GNumbers ( outChannel: data.out() ),
-                new GFixedDelay ( delay: 1000, 
+                new GFixedDelay ( delay: 600, 
                 		          inChannel: data.in(), 
                 		          outChannel: timedData.out() ),
                 new Scale ( inChannel: timedData.in(),

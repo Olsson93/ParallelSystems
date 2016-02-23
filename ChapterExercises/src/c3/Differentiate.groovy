@@ -22,6 +22,10 @@ class Differentiate implements CSProcess {
                               new GPCopy ( inChannel: inChannel,  
                             		       outChannel0: a.out(), 
                             		       outChannel1: b.out() ),
+							  new Minus(   inChannel0: c.in(),
+								  		   inChannel1: a.in(),
+										outChannel:outChannel),	                
+ 				   
                               // insert a constructor for Minus                          
  							]
     

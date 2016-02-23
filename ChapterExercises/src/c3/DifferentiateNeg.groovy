@@ -22,6 +22,8 @@ class DifferentiateNeg implements CSProcess {
                               new GPCopy ( inChannel: inChannel,  
                             		       outChannel0: a.out(), 
                             		       outChannel1: b.out() ),
+							  new Negator (inChannel: c.in(), 
+								  			outChannel: d.out()),	   
                               //insert a constructor for Negator
                               new GPlus  ( inChannel0: a.in(), 
                             		       inChannel1: d.in(), 

@@ -18,13 +18,16 @@ class ResetNumbers implements CSProcess {
     One2OneChannel c = Channel.createOne2One()
     
     def testList = [ new GPrefix ( prefixValue: initialValue, 
-                                   outChannel: a.out(), 
-                                   inChannel: c.in() ),
+                                       outChannel: a.out(), 
+                                       inChannel: c.in() ),
                      new GPCopy ( inChannel: a.in(), 
                             	  outChannel0: outChannel, 
                             	  outChannel1: b.out() ),
-                     // requires a constructor for ResetSuccessor
-                  ]
+                     new ResetSuccessor( inChannel: b.in(),  
+									  resetChannel: resetChannel,
+									  outChannel: c.out() ) 
+                   ]
+                  	
     new PAR ( testList ).run()    
   }
 }

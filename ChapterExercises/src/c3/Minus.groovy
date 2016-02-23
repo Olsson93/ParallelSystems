@@ -18,6 +18,7 @@ class Minus implements CSProcess {
 
     while (true) {
       parRead2.run()
+	  outChannel.write(read1.value-read0.value)
       // output one value subtracted from the other
       // be certain you know which way round you are doing the subtraction!!
     }
